@@ -20,7 +20,7 @@ jobs:
           submodules: true
       - name: Restore
         working-directory: api
-        run: npm ci
+        run: rm -rf node_modules
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
