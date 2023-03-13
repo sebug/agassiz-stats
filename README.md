@@ -6,3 +6,7 @@ Create an Azure Static web app, set /src as the app folder and /api as the API f
 
 ## Step 2: Create a Google Cloud project
 [Create a Google Cloud project to access the workspace API](https://developers.google.com/workspace/guides/create-project)
+
+Enable the Google Sheets API.
+
+Go to credentials and create an OAuth Client ID.
