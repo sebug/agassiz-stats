@@ -9,4 +9,4 @@ Create an Azure Static web app, set /src as the app folder and /api as the API f
 
 Enable the Google Sheets API.
 
-Go to credentials and create an OAuth Client ID.
+Create a service account key: https://github.com/juampynr/google-spreadsheet-reader
