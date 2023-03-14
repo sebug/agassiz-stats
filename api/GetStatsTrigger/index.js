@@ -1,6 +1,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const process = require('process');
+const os = require('os');
 const {google} = require('googleapis');
 const {authenticate} = require('@google-cloud/local-auth');
 
@@ -14,11 +15,11 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 async function authorize(context) {
     context.log('Service account key length: ' + process.env.SERVICE_ACCOUNT_KEY.length);
 
-    await fs.writeFile("keyfile.json", process.env.SERVICE_ACCOUNT_KEY);
+    await fs.writeFile(path.join(os.tmpdir(), "keyfile.json"), process.env.SERVICE_ACCOUNT_KEY);
 
     client = await authenticate({
       scopes: SCOPES,
-      keyfilePath: "keyfile.json"
+      keyfilePath:  os.join(os.tmpdir(), "keyfile.json")
     });
     return client;
   }
