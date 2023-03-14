@@ -45,13 +45,9 @@ module.exports = async function (context, req) {
             range: 'Mode!A2:B',
         });
     
-        context.log(res);
-    
-        const responseMessage = "The stats will appear here - " + process.env.PROJECT_ID;
-    
         context.res = {
             // status: 200, /* Defaults to 200 */
-            body: responseMessage
+            body: res
         };
     } catch (err) {
         context.log(err);
