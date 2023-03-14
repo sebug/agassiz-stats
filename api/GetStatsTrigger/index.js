@@ -38,6 +38,8 @@ module.exports = async function (context, req) {
 
         const sheets = google.sheets({version: 'v4', client });
 
+        context.log(process.env.SHEET_ID);
+
         const res = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.SHEET_ID,
             range: 'Mode!A2:B',
