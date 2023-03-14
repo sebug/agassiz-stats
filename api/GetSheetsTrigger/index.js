@@ -40,7 +40,7 @@ module.exports = async function (context, req) {
 
         context.log(process.env.SHEET_ID);
 
-        const res = await sheets.spreadsheets.values.get({
+        const res = await sheets.spreadsheets.get({
             spreadsheetId: process.env.SHEET_ID
         });
     
