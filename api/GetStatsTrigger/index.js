@@ -24,7 +24,7 @@ async function authorize(context) {
   }
 
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('Begin get stats.');
 
     const client = await authorize(context);
 
