@@ -37,8 +37,13 @@ module.exports = async function (context, req) {
         const client = await authorize(context);
 
         const sheets = google.sheets({version: 'v4', client });
+
+        const res = await sheets.spreadsheets.values.get({
+            spreadsheetId: process.env.SHEET_ID,
+            range: 'Mode!A2:B',
+        });
     
-        context.log(sheets);
+        context.log(res);
     
         const responseMessage = "The stats will appear here - " + process.env.PROJECT_ID;
     
