@@ -19,7 +19,7 @@ async function authorize(context) {
 
     client = await authenticate({
       scopes: SCOPES,
-      keyfilePath:  os.join(os.tmpdir(), "keyfile.json")
+      keyfilePath:  path.join(os.tmpdir(), "keyfile.json")
     });
     return client;
   }
