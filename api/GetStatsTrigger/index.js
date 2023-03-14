@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 const process = require('process');
 const os = require('os');
-const {google} = require('googleapis');
+const {Auth, google} = require('googleapis');
 const {authenticate} = require('@google-cloud/local-auth');
 
 // If modifying these scopes, delete token.json.
@@ -17,10 +17,16 @@ async function authorize(context) {
 
     await fs.writeFile(path.join(os.tmpdir(), "keyfile.json"), process.env.SERVICE_ACCOUNT_KEY);
 
-    client = await authenticate({
-      scopes: SCOPES,
-      keyfilePath:  path.join(os.tmpdir(), "keyfile.json")
+    const auth = new Auth.GoogleAuth({
+        keyFile: path.join(os.tmpdir(), "keyfile.json"),
+        scopes: SCOPES
     });
+
+    const client = await auth.getClient();
+
+    context.log('Client is ' + client);
+    context.log(client);
+
     return client;
   }
 
