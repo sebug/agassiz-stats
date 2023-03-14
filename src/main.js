@@ -17,6 +17,23 @@ const renderTable = (data) => {
     headingTr.appendChild(modeTh);
     thead.appendChild(headingTr);
     table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    for (const row of data) {
+        const tr = document.createElement('tr');
+
+        const dateTd = document.createElement('td');
+        dateTd.innerHTML = row[0];
+        tr.appendChild(dateTd);
+
+        const modeTd = document.createElement('td');
+        modeTd.innerHTML = row[1];
+        tr.appendChild(modeTd);
+
+        tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+
     container.appendChild(table);
 };
 
