@@ -12,13 +12,13 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
  *
  */
 async function authorize(context) {
-    context.log('Service account key length: ' + process.env.SERVICE_ACCOUNT_KEY.length)
+    context.log('Service account key length: ' + process.env.SERVICE_ACCOUNT_KEY.length);
 
     await fs.writeFile("keyfile.json", process.env.SERVICE_ACCOUNT_KEY);
 
     client = await authenticate({
       scopes: SCOPES,
-      keyfilePath: "keyfile.json",
+      keyfilePath: "keyfile.json"
     });
     return client;
   }
@@ -43,4 +43,4 @@ module.exports = async function (context, req) {
             body: err
         };
     }
-}
+};
