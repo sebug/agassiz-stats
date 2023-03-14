@@ -35,8 +35,10 @@ module.exports = async function (context, req) {
         context.log('Begin get stats.');
 
         const client = await authorize(context);
+
+        const sheets = google.sheets({version: 'v4', client });
     
-        context.log(client);
+        context.log(sheets);
     
         const responseMessage = "The stats will appear here - " + process.env.PROJECT_ID;
     
