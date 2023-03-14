@@ -6,8 +6,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "devDependencies": {
+  "dependencies": {
     "@google-cloud/local-auth": "^2.1.1",
     "googleapis": "^105.0.0"
-  }
+  },
+  "devDependencies": {}
 }
