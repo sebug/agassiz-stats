@@ -24,16 +24,23 @@ async function authorize(context) {
   }
 
 module.exports = async function (context, req) {
-    context.log('Begin get stats.');
+    try {
+        context.log('Begin get stats.');
 
-    const client = await authorize(context);
-
-    context.log(client);
-
-    const responseMessage = "The stats will appear here - " + process.env.PROJECT_ID;
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
+        const client = await authorize(context);
+    
+        context.log(client);
+    
+        const responseMessage = "The stats will appear here - " + process.env.PROJECT_ID;
+    
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: responseMessage
+        };
+    } catch (err) {
+        context.res = {
+            status: 500,
+            body: err
+        };
+    }
 }
