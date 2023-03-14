@@ -36,7 +36,7 @@ module.exports = async function (context, req) {
 
         const client = await authorize(context);
 
-        const sheets = google.sheets({version: 'v4', client });
+        const sheets = google.sheets({version: 'v4', auth: client });
 
         context.log(process.env.SHEET_ID);
 
