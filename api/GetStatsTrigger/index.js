@@ -1,8 +1,8 @@
 const fs = require('fs').promises;
 const path = require('path');
 const process = require('process');
-const {authenticate} = require('@google-cloud/local-auth');
 const {google} = require('googleapis');
+const {authenticate} = require('@google-cloud/local-auth');
 
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
